@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   minio:
-    image: minio/minio:latest
+    image: minio/minio
     container_name: minio
     environment:
       MINIO_ROOT_USER: ROOTUSER
@@ -14,7 +14,7 @@ services:
     command: server /data
 
   minio-console:
-    image: minio/console:latest
+    image: minio/mc
     container_name: minio-console
     environment:
       CONSOLE_ACCESS_KEY: ROOTUSER
