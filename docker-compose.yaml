@@ -10,8 +10,7 @@ services:
       MINIO_ROOT_PASSWORD: TpO8xuG48A
     volumes:
       - minio_data:/data
-    command: server /data
-
+    
   minio-console:
     image: minio/mc
     container_name: minio-console
