@@ -6,8 +6,8 @@ services:
     ports:
       - "9000:9000"
     environment:
-      MINIO_ACCESS_KEY: ROOTUSER
-      MINIO_SECRET_KEY: TpO8xuG48A
+      MINIO_ROOT_USER: ROOTUSER
+      MINIO_ROOT_PASSWORD: TpO8xuG48A
     volumes:
       - minio_data:/data
     command: server /data
