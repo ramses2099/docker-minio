@@ -1,22 +1,29 @@
+version: '3.8'
+
 services:
   minio:
-    image: minio/minio
+    image: minio/minio:latest
     container_name: minio
-    restart: always
-    ports:
-      - 9000:9000
-      - 9001:9001
-    networks:
-      - minionetwork
-    volumes:
-      - minio_data:/data
     environment:
       MINIO_ROOT_USER: ROOTUSER
       MINIO_ROOT_PASSWORD: TpO8xuG48A
-      MINIO_DEFAULT_BUCKETS: defualt_bucket
-networks:
-  minionetwork:
-    driver: bridge    
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio_data:/data
+    command: server /data
+
+  minio-console:
+    image: minio/console:latest
+    container_name: minio-console
+    environment:
+      CONSOLE_ACCESS_KEY: ROOTUSER
+      CONSOLE_SECRET_KEY: TpO8xuG48A
+      MINIO_SERVER: http://minio:9000
+    ports:
+      - "9001:9001"
+    depends_on:
+      - minio
+
 volumes:
   minio_data:
-    driver: local
