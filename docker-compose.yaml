@@ -11,9 +11,9 @@ services:
     volumes:
       - minio_data:/data
     environment:
-      - MINIO_ROOT_USER: ROOTUSER
-      - MINIO_ROOT_PASSWORD: TpO8xuG48A
-      - MINIO_DEFAULT_BUCKETS: defualt_bucket
+      MINIO_ROOT_USER: ROOTUSER
+      MINIO_ROOT_PASSWORD: TpO8xuG48A
+      MINIO_DEFAULT_BUCKETS: defualt_bucket
 networks:
   networks:
     driver: bridge    
