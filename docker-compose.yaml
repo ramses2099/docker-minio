@@ -4,8 +4,8 @@ services:
     container_name: minio
     restart: always
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - '9000:9000'
+      - '9001:9001'
     networks:
       - minionetwork
     volumes:
@@ -15,7 +15,7 @@ services:
       MINIO_ROOT_PASSWORD: TpO8xuG48A
       MINIO_DEFAULT_BUCKETS: defualt_bucket
 networks:
-  networks:
+  minionetwork:
     driver: bridge    
 volumes:
   minio_data:
