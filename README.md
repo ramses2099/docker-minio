@@ -8,4 +8,4 @@ MinIO is a high-performance, S3 compatible object store. It is built for large s
 ## Service Console Manager
  - MINIO_ACCESS_KEY: ROOTUSER $$
  - MINIO_SECRET_KEY: TpO8xuG48A $$
- - http://10.0.0.50:9000
+ - http://10.0.0.50:9001
