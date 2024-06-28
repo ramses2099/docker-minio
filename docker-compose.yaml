@@ -3,27 +3,14 @@ version: '3.8'
 services:
   minio:
     image: minio/minio
-    container_name: minio
-    environment:
-      MINIO_ROOT_USER: ROOTUSER
-      MINIO_ROOT_PASSWORD: TpO8xuG48A
     ports:
       - "9000:9000"
-    volumes:
-      - minio_data:/data
-    command: server /data --console-address ":9001"
-
-  minio-console:
-    image: minio/mc
-    container_name: minio-console
-    environment:
-      CONSOLE_ACCESS_KEY: ROOTUSER
-      CONSOLE_SECRET_KEY: TpO8xuG48A
-      MINIO_SERVER: http://minio:9000
-    ports:
       - "9001:9001"
-    depends_on:
-      - minio
+    volumes:
+      - ./minio_data:/data
+    command: server --console-address ":9001" /data
+    env_file: .env
+    restart: always
 
-volumes:
-  minio_data:
+
+   
